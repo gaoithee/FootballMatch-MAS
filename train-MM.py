@@ -58,16 +58,16 @@ chall2 = Challenger(grid1, opponent_flag = True)
 chall3 = Challenger(grid1, opponent_flag = True) 
 
 print("TRAINING: minimax vs minimax")
-trainMM(agentA, agentB, 1000000)
+trainMM(agentA, agentB, 2000000)
 
+# Reset
 agentB.grid.reward = 0
 agentB.grid.wonGames = 0
 agentB.grid.terminatedGames = 0
+agentB.grid.state = [(3,1), (1,2)]
 
 print("TESTING AGENT: MM vs random")
 agentB.testMR()
-print("TESTING AGENT: MM vs random")
-agentA.testMRopp()
 
 #############################################
 
@@ -114,6 +114,12 @@ def testCM(agent, challenger, rounds = 100000):
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
 
+# Reset
+agentB.grid.reward = 0
+agentB.grid.wonGames = 0
+agentB.grid.terminatedGames = 0
+agentB.grid.state = [(3,1), (1,2)]
+
 print("TRAINING: challenger 1 vs MR")
 trainCM(agentB, chall1)
 
@@ -123,6 +129,12 @@ testCM(agentB, chall1)
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
 
+# Reset
+agentB.grid.reward = 0
+agentB.grid.wonGames = 0
+agentB.grid.terminatedGames = 0
+agentB.grid.state = [(3,1), (1,2)]
+
 print("TRAINING: challenger 2 vs MR")
 trainCM(agentB, chall2)
 
@@ -131,6 +143,12 @@ testCM(agentB, chall2)
 
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+
+# Reset
+agentB.grid.reward = 0
+agentB.grid.wonGames = 0
+agentB.grid.terminatedGames = 0
+agentB.grid.state = [(3,1), (1,2)]
 
 print("TRAINING: challenger 3 vs MR")
 trainCM(agentB, chall3)

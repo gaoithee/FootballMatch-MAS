@@ -55,16 +55,16 @@ chall2 = Challenger(grid2, opponent_flag=True)
 chall3 = Challenger(grid2, opponent_flag=True)
 
 print("TRAINING: belief vs belief")
-trainBB(agentC, agentD, 1000000)
+trainBB(agentC, agentD, 2000000)
 
+# Reset
 agentD.grid.reward = 0
 agentD.grid.wonGames = 0
 agentD.grid.terminatedGames = 0
+agentD.grid.state = [(3,1), (1,2)]
 
 print("TESTING AGENT: BB vs random")
 agentD.testBR()
-print("TESTING AGENT: BB vs random")
-agentC.testBRopp()
 
 ###############################################
 
@@ -114,6 +114,12 @@ def testCB(agent, challenger, rounds = N_TEST):
 
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
 
+# Reset
+agentD.grid.reward = 0
+agentD.grid.wonGames = 0
+agentD.grid.terminatedGames = 0
+agentD.grid.state = [(3,1), (1,2)]
+
 print("TRAINING: challenger 1 vs BB")
 trainCB(agentD, chall1)
 
@@ -123,6 +129,12 @@ testCB(agentD, chall1)
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
 
+# Reset
+agentD.grid.reward = 0
+agentD.grid.wonGames = 0
+agentD.grid.terminatedGames = 0
+agentD.grid.state = [(3,1), (1,2)]
+
 print("TRAINING: challenger 2 vs BB")
 trainCB(agentD, chall2)
 
@@ -131,6 +143,12 @@ testCB(agentD, chall2)
 
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+
+# Reset
+agentD.grid.reward = 0
+agentD.grid.wonGames = 0
+agentD.grid.terminatedGames = 0
+agentD.grid.state = [(3,1), (1,2)]
 
 print("TRAINING: challenger 3 vs BB")
 trainCB(agentD, chall3)

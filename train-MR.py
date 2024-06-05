@@ -34,7 +34,7 @@ chall3 = Challenger(grid1, opponent_flag=True)
 
 print("5.000.000 - JUST TO TRY")
 print("TRAINING: minimax vs random")
-agent.trainMR(1000000)
+agent.trainMR(2000000)
 
 agent.grid.reward = 0
 agent.grid.wonGames = 0
@@ -90,6 +90,12 @@ def testCM(agent, challenger, rounds = 100000):
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
 
+# Reset
+agent.grid.reward = 0
+agent.grid.wonGames = 0
+agent.grid.terminatedGames = 0
+agent.grid.state = [(3,1), (1,2)]
+
 print("TRAINING: challenger 1 vs MR")
 trainCM(agent, chall1)
 
@@ -99,6 +105,11 @@ testCM(agent, chall1)
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
 
+agent.grid.reward = 0
+agent.grid.wonGames = 0
+agent.grid.terminatedGames = 0
+agent.grid.state = [(3,1), (1,2)]
+
 print("TRAINING: challenger 2 vs MR")
 trainCM(agent, chall2)
 
@@ -107,6 +118,11 @@ testCM(agent, chall2)
 
 #############################################
 print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+
+agent.grid.reward = 0
+agent.grid.wonGames = 0
+agent.grid.terminatedGames = 0
+agent.grid.state = [(3,1), (1,2)]
 
 print("TRAINING: challenger 3 vs MR")
 trainCM(agent, chall3)
