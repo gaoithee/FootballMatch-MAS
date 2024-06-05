@@ -249,6 +249,9 @@ class State:
         Returns:
             The updated state of the game.
         """
+	    
+        # Check if the game should end and update the relevant attributes
+        self.isEnd, self.reward, self.terminatedGames, self.wonGames = self.gameShouldEnd(action_a, action_b)
         
         if self.isEnd:
             # Reset the initial configuration if the game has ended
@@ -291,9 +294,6 @@ class State:
             else:
                 self.state[1] = self.nextPosition(self.state[1], action_b)
                 self.state[0] = original_a
-
-        # Check if the game should end and update the relevant attributes
-        self.isEnd, self.reward, self.terminatedGames, self.wonGames = self.gameShouldEnd(action_a, action_b)
 
         return self.state
 
